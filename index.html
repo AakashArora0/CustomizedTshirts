@@ -1,159 +1,226 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script type="text/javascript">
-function fname()
-{
-var f_name=form1.First_Name.value;
-re1 = /[^A-Z,a-z]/
-if(re1.test(f_name))
-{
-alert('InCorrect First Name');
-}
-}
-function lname()
-{
-var name=form1.Last_Name.value;
-re = /[^A-Z,a-z]/
-if (re.test(name))
-{
-alert('InCorrect Last Name');
-}
-}
-function age()
-{
-var age_value=form1.Age.value;
-re3 = /\D/
-if (re3.test(age_value))
-{
-alert('Enter Age In Number Format');
-}
-}
-function p_no()
-{
-var ph_no=form1.phone_no.value;
-re4 = /^\d{10}$/;
-if (!re4.test(ph_no))
-{
-alert('Enter Valid Phone Number');
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tshirt Customization</title>
+    <style>
+        body {
+            background-color: #ECE7DF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 1200px; /* Set a maximum width for the container */
+            margin: 0 auto; /* Center the container horizontally */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items horizontally */
+            align-items: flex-start; /* Align items at the start */
+            padding: 20px; /* Optional padding */
+        }
+        .image-container, .form-container {
+            flex: 1;
+            min-width: 300px; /* Minimum width for mobile */
+            margin: 10px;
+            background-color: #B5B3B0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for better visibility */
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* Remove borders */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+        }
+        button[type="reset"] {
+            background-color: #f44336; /* Red background for reset */
+        }
+        button:hover {
+            opacity: 0.8; /* Slightly transparent on hover */
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                font-size: 20px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+            img{
+              width: 300px;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function fname() {
+            var f_name = form1.First_Name.value;
+            re1 = /[^A-Z,a-z]/;
+            if (re1.test(f_name)) {
+                alert('InCorrect First Name');
+            }
+        }
 
-}
-function email()
-{
-var e=form1.emailid.value;
-re5 =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-if (!re5.test(e))
-{
-alert('Enter Valid Email Id');
-}
-}
-</script>
+        function lname() {
+            var name = form1.Last_Name.value;
+            re = /[^A-Z,a-z]/;
+            if (re.test(name)) {
+                alert('InCorrect Last Name');
+            }
+        }
+
+        function age() {
+            var age_value = form1.age.value; // Fixed: use form1.age instead of form1.Age
+            re3 = /\D/;
+            if (re3.test(age_value)) {
+                alert('Enter Age In Number Format');
+            }
+        }
+
+        function p_no() {
+            var ph_no = form1.phone_no.value;
+            re4 = /^\d{10}$/;
+            if (!re4.test(ph_no)) {
+                alert('Enter Valid Phone Number');
+            }
+        }
+
+        function email() {
+            var e = form1.emailid.value;
+            re5 = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
+            if (!re5.test(e)) {
+                alert('Enter Valid Email Id');
+            }
+        }
+
+        var mywindow;
+        function openwindow() {
+            var f_name = form1.First_Name.value;
+            var name = form1.Last_Name.value;
+            var ph_no = form1.phone_no.value;
+            var e = form1.emailid.value;
+            var c = form1.c.checked ? "Yes" : "No"; // Checkbox value
+            var sleeve = form1.sleeve.value;
+            var qt = form1.qt.value;
+            var d = new Date();
+            mywindow = window.open("", "", "height=400,width=400,left=100,top=100");
+
+            mywindow.document.writeln("<html>");
+            mywindow.document.writeln("<head>");
+            mywindow.document.writeln("<title>Bill</title>");
+            mywindow.document.writeln("</head>");
+            mywindow.document.writeln("<body>");
+            mywindow.document.writeln("<h1>BILL<br><br></h1>");
+            mywindow.document.writeln("<h4>");
+            mywindow.document.writeln("Name: " + f_name + " " + name + "<br>");
+            mywindow.document.writeln("Contact No: " + ph_no + "<br>");
+            mywindow.document.writeln("Email-Id: " + e + "<br>");
+            mywindow.document.writeln("Want Collar: " + c + "<br>");
+            mywindow.document.writeln("Sleeves Type: " + sleeve + "<br>");
+            mywindow.document.writeln("Quantity: " + qt + "<br>");
+            mywindow.document.writeln("Date: " + d.toLocaleString() + "<br>");
+            let a = qt * 600;
+            mywindow.document.writeln("Amount: " + a + "<br>");
+            mywindow.document.writeln("</h4>");
+            mywindow.document.writeln("</body>");
+            mywindow.document.writeln("</html>");
+            mywindow.document.close();
+            mywindow.focus();
+        }
+    </script>
 </head>
-<body bgcolor="ECE7DF">
-<script type="text/javascript">
-var mywindow;
-function openwindow()
-{
-var f_name=form1.First_Name.value;
-var name=form1.Last_Name.value;
-var ph_no=form1.phone_no.value;
-var e=form1.emailid.value;
-var c=form1.c.value;
-var sleeve =form1.sleeve.value;
-var qt =form1.qt.value;
-var d = new Date();
-mywindow=window.open("","","height=400,width=400,left=100,top=100");
-mywindow.document.writeln("<html>");
-mywindow.document.writeln("<head>");
-mywindow.document.writeln("<body>");
-mywindow.document.writeln("<h1>BILL<br><br></h1>");
-mywindow.document.writeln("<h4>");
-mywindow.document.writeln("Name:"+ f_name+ "  " +name +"<br>");
-mywindow.document.writeln("Contact No:"+ph_no+"<br>");
-mywindow.document.writeln("Email-Id:"+e+"<br>");
-mywindow.document.writeln("Want Collor:"+c+"<br>");
-mywindow.document.writeln("Sleeves Type:"+sleeve+"<br>");
-mywindow.document.writeln("Quantity:"+qt+"<br>");
-mywindow.document.writeln("Date:"+d+"<br>");
-let a = qt*600;
-mywindow.document.writeln("Amount:"+a+"<br>");
-mywindow.document.writeln("</h4>");
-mywindow.document.writeln("</body>");
-mywindow.document.writeln("</html>");
-mywindow.document.close();
-mywindow.focus();
-}
-</script>
-<header><center><font face="Cooper Black" size="24">Tshirt</font></center></header><br><br>
-<center><table cellspacing="10px" width="1300" bgcolor="AAA396">
-<td><center><img src="tshirt.png" width="450" height="550"></center></td>
-<td bgcolor="B5B3B0">
-<form name="form1">
-<h1 align="center">Customize your tshirts</h1><hr color="black" border=5>
-<h3>
-<table cellspacing="30px" width="900" >
-<tr><td><font face="sans-serif">
-First Name: <input type="text" name="First_Name" size=10 onblur="fname()"></font>
-</td><td><font face="sans-serif"> 
-Last Name: <input type="text" name="Last_Name" size=10 onblur="lname()"></font>
-</td></tr>
-<tr><td><font face="sans-serif">
-Select Color: <input type="color" name="color" value="ffffff"></font>
-</td><td><font face="sans-serif"> 
-Choose Size: 
-<select name="size">
-<option value="XS">XS</option>
-<option value="S">S</option>
-<option value="M">M</option>
-<option value="L">L</option>
-<option value="XL">XL</option>
-</select></font>
-</td></tr>
-<tr><td><font face="sans-serif">
-Enter Quantity: <input type="number" name="qt" maxlength=3 size=3 min="1" max="100"></font>
-</td><td><font face="sans-serif"> 
-Gender: <input type="radio" name="r0" value="male">Male
-<input type="radio" name="r0" value="female">Female</font>
-</td></tr>
-<tr><td><font face="sans-serif">
-Want Collar(Checked if Yes): <input type="checkbox" name="c"></font>
-</td><td><font face="sans-serif">
-Enter Current Date: <input type="date" name="bdate"></font>
-</td></tr>
-<tr><td><font face="sans-serif">
-Age: <input type="number" name="age" maxlength=3 size=3 min="10" max="100" onblur="age()"></font>
-</td><td><font face="sans-serif"> 
-Sleeves Type: <select name="sleeve">
-<option value="Short">Short</option>
-<option value="Long">Long</option>
-<option value="Sleeveless">Sleeveless</option>
-</select></font>
-</td></tr>
-<tr><td><font face="sans-serif">
-Phone Number: <input type="tel" name="phone_no" maxlength=10 size=10 onblur="p_no()"></font>
-</td><td><font face="sans-serif"> 
-Email Id: <input type="email" name="emailid" maxlength=20 size=15 onblur="email()"></font>
-</td></tr>
-<tr><td colspan="2"><font face="sans-serif">
-Enter Tagline: <input type="text" name="tline" size=25 ></font>
-</td></tr>
-<tr><td colspan="2"><font face="sans-serif">
-Residential Address:<br>
-&emsp;&emsp;&emsp;&emsp;<textarea name="address" cols=30 row=4></textarea></font>
-</td></tr>
-</table>
-<center>
-<button onclick="openwindow()" height="50">Submit</button>&emsp;
-<input type="reset" name="reset" value="Reset">&emsp;
-</center>
-</h3>
-</form>
-</form></td></table></center>
-
-<footer>
-<h6 align="right">
-  <p>Any Query?</p>
-  <p>Mail us:<a href="mailto:customizeT@gmail.com">customizeT@gmail.com</a></p></h6>
-</footer>
+<body>
+    <header>Tshirt Customization</header>
+    <div class="container">
+        <div class="image-container">
+            <img src="tshirt.png" width="450" height="550" alt="T-shirt">
+        </div>
+        <div class="form-container">
+            <form name="form1">
+              <header>Customize your tshirts</form></header>
+                <hr color="black" border="5">
+                <table>
+                    <tr>
+                        <td>First Name: <input type="text" name="First_Name" size="10" onblur="fname()"></td>
+                        <td>Last Name: <input type="text" name="Last_Name" size="10" onblur="lname()"></td>
+                    </tr>
+                    <tr>
+                        <td>Select Color: <input type="color" name="color" value="ffffff"></td>
+                        <td>Choose Size: 
+                            <select name="size">
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Enter Quantity: <input type="number" name="qt" maxlength="3" size="3" min="1" max="100"></td>
+                        <td>Gender: 
+                            <input type="radio" name="r0" value="male">Male
+                            <input type="radio" name="r0" value="female">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Want Collar (Checked if Yes): <input type="checkbox" name="c"></td>
+                        <td>Enter Current Date: <input type="date" name="bdate"></td>
+                    </tr>
+                    <tr>
+                        <td>Age: <input type="number" name="age" maxlength="3" size="3" min="10" max="100" onblur="age()"></td>
+                        <td>Sleeves Type: 
+                            <select name="sleeve">
+                                <option value="Short">Short</option>
+                                <option value="Long">Long</option>
+                                <option value="Sleeveless">Sleeveless</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number: <input type="tel" name="phone_no" maxlength="10" size="10" onblur="p_no()"></td>
+                        <td>Email Id: <input type="email" name="emailid" maxlength="20" size="15" onblur="email()"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Enter Tagline: <input type="text" name="tline" size="25"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Residential Address:<br>
+                            <textarea name="address" cols="30" rows="4"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <center>
+                    <button type="button" onclick="openwindow()">Submit</button>
+                    <button type="reset">Reset</button>
+                </center>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h6 align="right">
+            <p>Any Query?</p>
+            <p>Mail us: <a href="mailto:customizeT@gmail.com">customizeT@gmail.com</a></p>
+        </h6>
+    </footer>
 </body>
 </html>
